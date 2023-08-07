@@ -17,13 +17,14 @@ module "creative-dev-s3-bucket" {
     source = "../terraform-modules/s3"
     s3-bucket-name= "${data.aws_caller_identity.current.account_id}-${data.aws_region.current.name}-test-${var.environment}"
     remote-backend-bucket = "${data.aws_caller_identity.current.account_id}-${data.aws_region.current.name}-terraform-remote-state"
-    remote-backend-key = "test"
+    remote-backend-key = "terraform-modules/terraform.tfstate"
     region = "${data.aws_region.current.name}"
     tags = local.tags
 }
 
 variable "environment" {
-    default  = "Sandbox"
+    default  = "sandbox"
+    type = string
 }
 
 #290668402712-us-east-1-terraform-remote-state
