@@ -11,13 +11,3 @@ variable "tags" {
     })
   
 }
-
-variable "remote-backend-bucket"{
-    type = string
-}
-
-variable "remote-backend-key"{ type = string}
-
-variable "region" {
-  type = string
-}
