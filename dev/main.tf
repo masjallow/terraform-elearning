@@ -19,6 +19,27 @@ module "creative-dev-s3-bucket" {
     tags = local.tags
 }
 
+module "rds-db" {
+    source = "../terraform-modules/RDS"
+
+    db_password = "root$$123"
+    db_username = "root"
+    tags        = local.tags
+    db_name     = "${var.environment}DB"
+}
+
+module "webserver" {
+    source = "../terraform-modules/webserver"
+    cluster_name = "webserver"
+    db_remote_state_bucket = "385078676943-us-east-1-terraform-remote-state"
+    db_remote_state_key = "dev/terraform.tfstate"
+    image_id = "ami-051f7e7f6c2f40dc1"
+    instance_type = "t2.micro"
+    max_size = 2
+    min_size = 1
+    tags = local.tags
+}
+
 variable "environment" {
     default  = "sandbox"
     type = string
