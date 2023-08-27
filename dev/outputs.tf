@@ -1,19 +1,31 @@
 output "s3-bucket-name" {
   value = module.creative-dev-s3-bucket.s3-arn
 }
+//
+//output "database-address" {
+//  value = module.rds-db.address
+//}
+//
+//output "database-port"{
+//  value = module.rds-db.port
+//}
+//
+//output "webserver-address" {
+//  value = module.webserver.alb_dns_name
+//}
+//
+//output "webserver-asg-name" {
+//  value = module.webserver.asg_name
+//}
 
-output "database-address" {
-  value = module.rds-db.address
+output "user_arn" {
+  value = module.task2.iam_user_arn
 }
 
-output "database-port"{
-  value = module.rds-db.port
+output "group_arn" {
+  value = module.task2.iam_group_arn
 }
 
-output "webserver-address" {
-  value = module.webserver.alb_dns_name
-}
-
-output "webserver-asg-name" {
-  value = module.webserver.asg_name
+output "policy_arn" {
+  value = module.task2.iam_policy_arn
 }
