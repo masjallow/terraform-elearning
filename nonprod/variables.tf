@@ -1,4 +1,4 @@
 variable "environment" {
-  default  = "nonprod"
+  default  = "creative"
   type = string
 }

@@ -34,3 +34,16 @@ variable "tags" {
   })
 
 }
+
+variable "db_engine" {
+  type = string
+}
+
+variable "db_storage" {
+  type = string
+}
+
+variable "public_access" {
+  type = bool
+  default = false
+}
