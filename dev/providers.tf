@@ -8,3 +8,12 @@ terraform {
     }
   }
 }
+provider "aws" {
+    default_tags {
+      tags = {
+        CostCentre = "888"
+        Owner       = "InfraTeam"
+      }
+    }
+  }
+
